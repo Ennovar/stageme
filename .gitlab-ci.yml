@@ -1,8 +1,7 @@
 image: swarm 
-before_script:
-  - docker-compose build . 
 test:
   script:
+  - docker-compose build . 
   - docker-compose run api rake db:create
   - docker-compose run api rake db:migrate 
   - docker-compose run api rake
