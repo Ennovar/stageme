@@ -1,6 +1,7 @@
 image: ennovarplayerone/dockerindocker 
 test:
   script:
+  - usermod -aG docker ${USER}
   - docker-compose build 
   - docker-compose run api rake db:create
   - docker-compose run api rake db:migrate 
