@@ -1,4 +1,4 @@
-image: swarm 
+image: ennovarplayerone/dockerindocker 
 test:
   script:
   - docker-compose build . 
