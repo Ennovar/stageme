@@ -1,4 +1,4 @@
-image: ennovarplayerone/dockerindocker 
+image: dduportal/docker-compose:latest 
 test:
   script:
   - docker-compose build 
