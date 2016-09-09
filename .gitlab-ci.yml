@@ -1,4 +1,4 @@
-image: docker 
+image: swarm 
 before_script:
   - docker-compose build . 
 test:
