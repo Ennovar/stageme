@@ -2,7 +2,9 @@ FROM ennovarplayerone/rordev
 
 COPY . /gitlabcd
 WORKDIR /gitlabcd
+ENV RAILS_ENV=production
 RUN bundle install
-RUN rake db:create
-RUN rake db:migrate
-CMD ["rails", "s", "-p", "9999:3000", "-b", "0.0.0.0"]
+ENV SECRET_KEY_BASE=ajsdlkjfiwuionjcljk
+CMD ["rails", "s", "-p", "8000", "-b", "0.0.0.0"]
+
+
