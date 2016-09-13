@@ -1,5 +1,6 @@
 # Staging Hook API
 _used to send requests for staging server running new projects_
+## NOTE: in Alpha stages, DO NOT USE IN PRODUCTION!!!
 
 ## Setup
 1. clone the project
