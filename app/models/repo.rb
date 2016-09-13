@@ -7,6 +7,12 @@ module BuildPacks
 		system " docker run -p #{5000 + repo.id}:3000 #{repo.name} &"
 		puts "#{repo.name} running on port #{5000 + repo.id}"
 	end
+	def self.docker_compose_run(repo)
+		puts 'running docker-compose build'
+		system "cd projects/#{repo.name} && docker-compose build"
+		puts 'running docker-compose up'
+		system "docker-compose up"
+	end
 end
 
 module ProcessHelper
@@ -33,6 +39,10 @@ class Repo < ApplicationRecord
 
 		# run the appropriate build pack
 		def run
-			BuildPacks::docker_run(self)
+			if self.buildpack == 'dockerfile'
+				BuildPacks::docker_run(self)
+			elsif self.buildpack == 'docker-compose'
+				BuildPacks::docker_compose_run(self)
+			end
 		end
 end

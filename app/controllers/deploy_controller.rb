@@ -3,7 +3,7 @@ class DeployController < ApplicationController
 	def deploy
 		puts params
 		
-		 if  Repo.where(remote_path: repo_params[:remote_path]).count < 0
+		if Repo.where(remote_path: repo_params[:remote_path]).first.nil?
 			repo = Repo.create(repo_params)
 			repo.run
 			puts repo.remote_path
